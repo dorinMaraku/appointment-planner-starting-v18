@@ -14,23 +14,24 @@ const [contact, setContact] = useState({name, phone, email});
   const handleSubmit = (e) => {
     e.preventDefault();
     /* Add contact info and clear data if the contact name is not a duplicate */
-    setContact({name, phone, email})
-    console.log(contact)
-
+    if(name) {
+      setContact({name, phone, email})     
+    }
+      console.log(contact)
+      
+      handleContacts(contact)
+      console.log(contacts)
   };
 
   /* Using hooks, check for contact name in the contacts array variable in props */
    const handleClick = useEffect(() => {
       contacts.map(filteredContact => {
-        if (filteredContact.name === contact.name) {
-          return
+        if (filteredContact.name !== name) {
+          return //handleContacts(contact)
         } 
-        handleContacts( contact)
-        setName('')
-        setPhone('')
-        setEmail('')
+        return
       })
-    }, [contact]);
+    }, [name]);
 
    
   return (
@@ -42,14 +43,14 @@ const [contact, setContact] = useState({name, phone, email});
       <hr />
       <section>
         <h2>Contacts</h2>
-        {contacts.map(contactData => {
+        {contacts.map((contactData, i) => {
           return (
-            <>
-            <h3> Contact #{contacts.length} </h3>
-            <h3>Name: {contactData.name} </h3>
-            <h4>Phone: {contactData.phone} </h4>
-            <h4>Email: {contactData.email} </h4>
-            </>
+            <div key={i}>
+            <h4> Contact #{i + 1} </h4>
+            <p>Name: {contactData.name} </p>
+            <p>Phone: {contactData.phone} </p>
+            <p>Email: {contactData.email} </p>
+            </div>
           )
         })}
       </section>

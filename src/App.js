@@ -13,7 +13,7 @@ function App() {
   const handleContacts = (thisContact) => {
     setContacts(prevContacts => ([...prevContacts, thisContact]));
   }
-  console.log(contacts)
+  // console.log(contacts)
   const handleAppointments = (thisAppointment) => {
     setAppointments(prevAppointments => ([...prevAppointments, thisAppointment]));
   }
