@@ -10,19 +10,19 @@ function App() {
   const [appointments, setAppointments] = useState([])
 
   /*  Implement functions to add data to contacts and appointments  */
-  const handleContacts = (thisContact) => {
+  const addContacts = (thisContact) => {
     setContacts(prevContacts => ([...prevContacts, thisContact]));
   }
   // console.log(contacts)
-  const handleAppointments = (thisAppointment) => {
+  const addAppointments = (thisAppointment) => {
     setAppointments(prevAppointments => ([...prevAppointments, thisAppointment]));
   }
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={ <Root/> }>
       <Route index element={ <Navigate to={ROUTES.CONTACTS} replace/> }/>
-      <Route path={ROUTES.CONTACTS} element={ <ContactsPage contacts={contacts} handleContacts={handleContacts}/> /* Add props to ContactsPage */ }/>
-      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage appointments={appointments} handleAppointments={handleAppointments}/> /* Add props to AppointmentsPage */ }/>
+      <Route path={ROUTES.CONTACTS} element={ <ContactsPage contacts={contacts} addContacts={addContacts}/> /* Add props to ContactsPage */ }/>
+      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage appointments={appointments} addAppointments={addAppointments}/> /* Add props to AppointmentsPage */ }/>
     </Route>
   ));
   
