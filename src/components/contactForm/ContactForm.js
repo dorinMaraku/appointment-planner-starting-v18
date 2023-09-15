@@ -7,27 +7,36 @@ export const ContactForm = ({
   setPhone,
   email,
   setEmail,
-  handleSubmit,
-  handleClick,
-  resetValues
+  handleSubmit
 }) => {
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{maxWidth: "400px"}}>
         <label htmlFor='name'>Name</label>
         <input 
           id='name' 
           type='text' 
-          ref={resetValues}
           name='name' 
           value={name} 
           placeholder='name' 
           onChange={(e) => setName(e.target.value)}/>
         <label htmlFor='phone'>Phone</label>
-        <input id='phone' type='text' ref={resetValues} name='phone' value={phone} placeholder='phone' onChange={(e) => setPhone(e.target.value)}></input>
+        <input 
+          id='phone' 
+          type='tel' 
+          name='phone' 
+          value={phone} 
+          placeholder='phone' 
+          onChange={(e) => setPhone(e.target.value)}/>
         <label htmlFor='email'>Email</label>
-        <input id='email' type='text' ref={resetValues} name='email' value={email} placeholder='email' onChange={(e) => setEmail(e.target.value)}></input>
-        <button type='submit' onClick={handleClick}> Submit </button>
+        <input 
+          id='email' 
+          type='text' 
+          name='email' 
+          value={email} 
+          placeholder='email' 
+          onChange={(e) => setEmail(e.target.value)}/>
+        <button type='submit'> Submit </button>
       </form>
     </>
   );
