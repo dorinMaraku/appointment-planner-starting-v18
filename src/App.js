@@ -13,7 +13,7 @@ function App() {
   const addContacts = (thisContact) => {
     setContacts(prevContacts => ([...prevContacts, thisContact]));
   }
-  // console.log(contacts)
+ 
   const addAppointments = (thisAppointment) => {
     setAppointments(prevAppointments => ([...prevAppointments, thisAppointment]));
   }
@@ -22,7 +22,7 @@ function App() {
     <Route path="/" element={ <Root/> }>
       <Route index element={ <Navigate to={ROUTES.CONTACTS} replace/> }/>
       <Route path={ROUTES.CONTACTS} element={ <ContactsPage contacts={contacts} addContacts={addContacts}/> /* Add props to ContactsPage */ }/>
-      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage appointments={appointments} addAppointments={addAppointments}/> /* Add props to AppointmentsPage */ }/>
+      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage appointments={appointments} contacts={contacts} addAppointments={addAppointments}/> /* Add props to AppointmentsPage */ }/>
     </Route>
   ));
   

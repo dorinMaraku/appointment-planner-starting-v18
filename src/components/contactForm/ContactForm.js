@@ -27,6 +27,7 @@ export const ContactForm = ({
           name='phone' 
           value={phone} 
           placeholder='phone' 
+          pattern='^(((067|068|069)\d{7})){1}$'
           onChange={(e) => setPhone(e.target.value)}/>
         <label htmlFor='email'>Email</label>
         <input 
